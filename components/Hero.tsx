@@ -1,12 +1,11 @@
-"use client"
+"use client";
 
 import React from "react";
 import Image from "next/image";
 import CustomButton from "./CustomButton";
 
 const Hero = () => {
-
-  const handleScroll = () => {}
+  const handleScroll = () => {};
 
   return (
     <div className="hero">
@@ -21,7 +20,7 @@ const Hero = () => {
         </p>
 
         <CustomButton
-          title = "Explore Cars"
+          title="Explore Cars"
           containerStyle="bg-primary-blue text-white rounded-full mt-10"
           handleClick={handleScroll}
         />
@@ -29,11 +28,15 @@ const Hero = () => {
 
       <div className="hero__image-container">
         <div className="hero__image">
-          <Image src = "/hero.png" alt = "picture of hero" fill className="object-contain"/>
-          <div className="hero__image-overlay"></div>
+          <Image
+            src="/hero.png"
+            alt="picture of hero"
+            fill
+            className="object-contain"
+          />
         </div>
+        <div className="hero__image-overlay"></div>
       </div>
-
     </div>
   );
 };
