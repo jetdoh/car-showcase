@@ -5,8 +5,9 @@
 import React from 'react'
 import Image from 'next/image'
 import { CustomButtonProps } from '@/types';
+import { text } from 'stream/consumers';
 
-const CustomButton = ({title, btnType, containerStyle, handleClick}: CustomButtonProps) => {
+const CustomButton = ({title, btnType, containerStyle, textStyle, rightIcon, handleClick}: CustomButtonProps) => {
   return (
     <button
         disabled={false}
@@ -14,9 +15,15 @@ const CustomButton = ({title, btnType, containerStyle, handleClick}: CustomButto
         className = {`custom-btn ${containerStyle}`}
         onClick={handleClick}
     >
-        <span className = {'flex-1'}>
+        <span className = {`flex-1 ${textStyle}`}>
             {title}
         </span>
+
+        {rightIcon && (
+          <div className='relative w-6 h-6'>
+            <Image src={rightIcon} alt='right icon' fill className='object-contain'/>
+          </div>
+        )}
     </button>
   )
 }
