@@ -10,8 +10,13 @@ export interface CustomButtonProps {
   handleClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
+export interface OptionProps {
+  title: string;
+  value: string;
+}
 export interface CustomFilterProps {
   title: string;
+  option: OptionProps[];
 }
 
 export interface SearchManufacturerProps {
