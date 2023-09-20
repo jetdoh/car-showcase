@@ -58,6 +58,7 @@ export const generateCarImageURL = (
   return `${url}`;
 };
 
+//update search params
 export const updateSearchParams = (type: string, value: string) => {
   const searchParams = new URLSearchParams(window.location.search);
   searchParams.set(type, value);

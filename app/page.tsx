@@ -1,9 +1,9 @@
-import { CarCard, CustomFilter, Hero, SearchBar } from "@/components";
+import { CarCard, CustomFilter, Hero, SearchBar, Showless, Showmore } from "@/components";
 import { fuels, yearsOfProduction } from "@/constants";
-import { FilterProps } from "@/types";
+import { FilterProps, HomeProps } from "@/types";
 import { fetchCars } from "@/utils";
 
-export default async function Home( { searchParams } ) {
+export default async function Home( { searchParams } : HomeProps ) {
 
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || "",
@@ -33,6 +33,7 @@ export default async function Home( { searchParams } ) {
             <CustomFilter title="fuel" option = {fuels}/>
             <CustomFilter title="year" option = {yearsOfProduction}/>
           </div>
+          <Showless pageNumber = {(searchParams.limit || 10) / 10} />
         </div>
 
         {!isDataEmpty ? (
@@ -42,6 +43,11 @@ export default async function Home( { searchParams } ) {
                 <CarCard car={car} />
               ))}
             </div>
+
+            <Showmore
+              pageNumber = {(searchParams.limit || 10) / 10}
+              isNext = {(searchParams.limit|| 10) > allCars.length}
+            />
           </section>
         ) : (
           <div className="home__error-container">
