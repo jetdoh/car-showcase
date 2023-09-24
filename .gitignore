@@ -34,5 +34,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-#API_key
-api_key.tsx
+# #API_key
+# api_key.tsx
